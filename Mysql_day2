@@ -1,0 +1,36 @@
+
+Assignment 1:
+
+1. create table department with columns dept_no, dept_name, dept_location.
+Note:- dept_no should be primary key
+
+>  create table department(dept_no int primary key ,dept_name text, dept_location text);
+
+2. create table employee with columns emp_no, emp_name, emp_age, emp_gender, dept_no
+Note:- emp_no should be a primary key ; emp_age should not be less than 18 ; emp_gender cannot be other than 'M' or 'F' ; dept_no should be FK refering department table acno column ; and apply on delete cascade.
+
+> create table employee(emp_no int primary key, emp_name text, emp_age int check (emp_age>=18), emp_gender char(1),dept_no int, foreign key(dept_no) references department(dept_no) on delete cascade);
+
+
+
+Assignment 2:
+
+1.Create a table “Course-copy” from an existing table “Course”
+
+> create database employee;
+> use employee;
+> create table Course;
+> insert into Course values((101,"Core Java",5000,"4 weeks"),(102,"Python",7000,"8 weeks"),(103,"sql",2000,"2 weeks"));
+> create table Course_copy as select * from Course;
+
+
+
+2.using alter table do the following(work with any table)
+	a) add 2 columns
+	b) remove 2 columns
+	c) rename a column
+
+> alter table Course_copy add(course_faculty text, course_timings text);
+> alter table Course_copy drop course_timings;
+> alter table Course_copy drop column course_faculty, drop course_timings;
+> alter table Course_copy rename column course_fee to course_donation;
