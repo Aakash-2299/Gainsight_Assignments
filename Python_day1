@@ -1,0 +1,78 @@
+Question 1:
+
+class Roman:
+    def __init__(self):
+        self.num_map = {
+            1: 'I',
+            4: 'IV',
+            5: 'V',
+            9: 'IX',
+            10: 'X',
+            40: 'XL',
+            50: 'L',
+            90: 'XC',
+            100: 'C',
+            400: 'CD',
+            500: 'D',
+            900: 'CM',
+            1000: 'M'
+        }
+        self.sorted_nums = sorted(self.num_map.keys(), reverse=True)
+    def to_roman(self, num):
+        r = ""
+        i = 0
+        while num > 0:
+            if num >= self.sorted_nums[i]:
+                r+= self.num_map[self.sorted_nums[i]]
+                num -= self.sorted_nums[i]
+            else:
+                i += 1
+        return r
+n= Roman()
+n.to_roman(25)
+
+
+
+Question 2:
+
+class Generator_of_Subset:
+    def __init__(self):
+        self.subsets = []
+    def generate_subsets(self, nums):
+        self.subsets = []
+        self.generate([], nums)
+        return self.subsets
+    def generate(self, current_subset, remaining_nums):
+        if not remaining_nums:
+            self.subsets.append(current_subset)
+            return
+        current_num = remaining_nums[0]
+        self.generate(current_subset + [current_num], remaining_nums[1:])
+        self.generate(current_subset, remaining_nums[1:])
+input_nums = [4, 5, 6]
+subset_generator =Generator_of_Subset()
+result = subset_generator.generate_subsets(input_nums)
+for subset in result:
+    print(subset)
+
+Question 3:
+
+class Student:
+    def __init__(self, student_id, student_name):
+        self.student_id = student_id
+        self.student_name = student_name
+    def display_attributes(self):
+        print("Attributes and Values:")
+        attributes = vars(self)
+        for k, v in attributes.items():
+            print(f"{k}: {v}")
+    def add_attribute(self, attr_name, attr_value):
+        setattr(self, attr_name, attr_value)
+    def remove_attribute(self, attr_name):
+        delattr(self, attr_name)
+student1 = Student(1, "Jyoti")
+student1.display_attributes()
+student1.add_attribute("student_city", "Delhi")
+student1.display_attributes()
+student1.remove_attribute("student_name")
+student1.display_attributes()
