@@ -1,0 +1,22 @@
+Question 1:
+
+create table department(dept_no int, dept_name text, dept_manager text,address_id int);
+create table Address(address_id int, city text,state text);
+create table employee (emp_no int,emp_name text,emp_sal int,dept_no int);
+select d.dept_no, d.dept_name, d.dept_manager, a.city, a.state, e.emp_no, e.emp_name, e.emp_sal from department as d inner join Address as a on d.address_id=a.address_id inner join employee as e on d.dept_no=e.dept_no;
+
+------------------------------------
+
+Question 2:
+
+create table bankaccount(acc_no int primary key, acc_opened_date date,status text,balance double);
+create table transaction(acc_no int, trans_type text,trans_date date, status text, balance double, foreign key(acc_no) references bankaccount(acc_no) on delete cascade);
+
+
+---------------------------------------
+
+Question 3:
+
+create table employee(emp_no int, emp_name text, emp_sal decimal, dept text, manager_name text);
+select manager_name,sum(emp_sal) from employee group by manager_name;
+select * from employee order by emp_sal desc limit 4,1;
