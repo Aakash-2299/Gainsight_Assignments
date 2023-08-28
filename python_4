@@ -1,0 +1,49 @@
+1. Write a Python program that prompts the user to input two numbers and raises a TypeError exception if the inputs are not numerical.
+exception TypeError:
+Raised when an operation or function is applied to an object of inappropriate type. The associated value is a string giving details about the type mismatch.
+
+def mismatch():
+    n,m=input(),input()
+    if n.isnumeric() and m.isnumeric():
+        return int(n)+int(m)
+    else:
+        raise TypeError
+mismatch()
+
+
+---------------------------------------
+
+2. Write a Python program that prompts the user to input a number and handles a KeyboardInterrupt exception if the user cancels the input.
+exception KeyboardInterrupt:
+Raised when the user hits the interrupt key (normally Control-C or Delete). During execution, a check for interrupts is made regularly. The exception inherits from BaseException so as to not be accidentally caught by code that catches Exception and thus prevent the interpreter from exiting.
+
+
+def keyboardinterrupt():
+    try:
+        name=input()
+    except KeyboardInterrupt:
+        raise KeyboardInterrupt
+keyboardinterrupt()
+
+
+---------------------------------------
+
+3. Write a Python program that opens a file and handles a UnicodeDecodeError exception if there is an encoding issue.
+
+try:
+    f=open("text.txt")
+    f.read()
+except UnicodeDecodeError as e:
+    print("file cannot be opened, it is encoded")
+
+
+---------------------------------------
+
+4. Write a Python program that executes a list operation and handles an AttributeError exception if the attribute does not exist.
+
+try:
+    l = [1,2,3,4,5]
+    length = l.length
+except AttributeError as e:
+    print(e)
+print(l)
