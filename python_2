@@ -1,0 +1,67 @@
+1. Write a Python class Employee with attributes like emp_id, emp_name, emp_salary, and emp_department and methods like calculate_emp_salary, emp_assign_department, and print_employee_details.
+Sample Employee Data:
+"ADAMS", "E7876", 50000, "ACCOUNTING"
+"JONES", "E7499", 45000, "RESEARCH"
+"MARTIN", "E7900", 50000, "SALES"
+"SMITH", "E7698", 55000, "OPERATIONS"
+Use 'assign_department' method to change the department of an employee.
+Use 'print_employee_details' method to print the details of an employee.
+Use 'calculate_emp_salary' method takes two arguments: salary and hours_worked, which is the number of hours worked by the employee. If the number of hours worked is more than 50, the method computes overtime and adds it to the salary. Overtime is calculated as following formula:
+overtime = hours_worked - 50
+Overtime amount = (overtime * (salary / 50))
+
+
+class Employee:
+    def __init__(self,emp_id,emp_name,emp_salary,emp_department):
+        self.emp_id=emp_id
+        self.emp_name=emp_name
+        self.emp_salary=emp_salary
+        self.emp_department=emp_department
+    def assign_department(self,dept):
+        emp_department=self.dept
+    def print_employee_details(self):
+        print("id : ",self.emp_id,"Name : ",self.emp_name,"Dept : ",self.emp_department,"Sal : ",self.emp_salary)
+    def emp_sal(self,hours_worked):
+        if hours_worked>50:
+            ot=hours_worked-50
+            ota = (ot*(self.emp_salary / 50))
+        self.emp_salary=self.emp_salary+ota
+        print(self.emp_id,":",self.emp_salary)
+
+e=Employee(1,"Aakash",5000,"software")
+e.emp_sal(87)
+
+
+-------------------------------------------------------------
+2.Write a Python class Restaurant with attributes like menu_items, book_table, and customer_orders, and methods like add_item_to_menu, book_tables, and customer_order.
+Perform the following tasks now:
+Now add items to the menu.
+Make table reservations.
+Take customer orders.
+Print the menu.
+Print table reservations.
+Print customer orders.
+Note: Use dictionaries and lists to store the data.
+
+
+class Restaurant:
+    def __init__(self,menu_items,book_table,customer_orders):
+        self.menu_items=menu_items
+        self.book_table=book_table
+        self.customer_orders=customer_orders
+    def add_item_to_menu(self,mi):
+        self.menu_items=self.menu_items+mi
+    def book_tables(self,bt):
+        self.book_table=bt
+    def customer_order(self,co):
+        self.customer_orders=co
+
+
+r=Restaurant(["idli","dosa","wada"],{1:"John",2:"Jacob",3:"Ravi"},{"Aakash":"idli","chintu":"idli","ravi":"wada"})
+r.menu_items
+r.add_item_to_menu(["setdosa","bonda"])
+r.menu_items
+r.book_table
+r.book_tables({1:'Sam',3:'Jessi'})
+r.book_table
+r.customer_orders
