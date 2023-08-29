@@ -1,0 +1,24 @@
+>>>>  Register and login Page
+
+from PyQt5 import QtWidgets,uic
+import sys
+def log():
+    login.op1.setText("Login success!!! :) ")
+def reg():
+    Register.e1.setText("Registration success!!! :) ")
+def land():
+    home.close()
+    Register.show()
+    Register.r1.clicked.connect(reg)
+def loginPage():
+    home.close()
+    login.show()
+    login.lp1.clicked.connect(log)
+demo=QtWidgets.QApplication([])
+home=uic.loadUi("/users/amanepally/Desktop/HomePage.ui")
+Register=uic.loadUi("/users/amanepally/Desktop/Register.ui")
+login=uic.loadUi("/users/amanepally/Desktop/Login.ui")
+home.show()
+home.r1.clicked.connect(land)
+home.l1.clicked.connect(loginPage)
+sys.exit(demo.exec_())
