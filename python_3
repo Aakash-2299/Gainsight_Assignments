@@ -1,0 +1,23 @@
+class author:
+    def __init__(self,writer,date,Title,Subject):
+        self.writer=writer
+        self.date=date
+        self.Title=Title
+        self.Subject=Subject
+    def addAuthor(self,x):
+        self.writer=x
+    def getDate(self):
+        return self.writer
+    def getTitle(self):
+        return self.Title
+    def getSubject(self):
+        return self.Subject
+    def getto(self):
+        return [self.writer,self.date,self.Title,self.Subject]
+
+
+a=author('Ram','22-02-1999','Effortless','Go easy');
+a.writer
+a.addAuthor("chintu")
+a.writer
+a.getto()
