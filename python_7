@@ -1,0 +1,79 @@
+Task1:
+
+ <?php
+$n = intval(fgets(STDIN));
+for($i = 0; $i < $n; $i++){
+    fscanf(STDIN, "%lf %lf %lf %lf %lf %lf", $xa, $ya, $ra, $xb, $yb, $rb);
+
+    $r = sqrt(($xb - $xa)*($xb - $xa) + ($yb - $ya)*($yb - $ya));
+    if($r + $ra < $rb){
+        echo "C1  is in C2\n";
+        continue;
+    }
+    if($r + $rb < $ra){
+        echo "C2  is in C1.\n";
+        continue;
+    }
+
+    if($r <= $ra + $rb){
+        echo "Circumference of C1  and C2  intersect.";
+        continue;
+    }
+    echo "C1 and C2 do not overlap.\n";
+}
+?>
+
+-------------------------------------------------
+
+
+Task 2:
+
+<?php
+function computeDebt($n) {
+    $borrowingAmount = 100000;  
+    $interestRate = 0.05;      
+
+    for ($i = 1; $i <= $n; $i++) {
+        // Calculate interest for the current month
+        $interest = $borrowingAmount * $interestRate;
+
+        // Add interest to the debt
+        $borrowingAmount += $interest;
+
+        // Round the debt to the nearest 1,000
+        $borrowingAmount = roundUpToNearest1000($borrowingAmount);
+    }
+
+    return $borrowingAmount;
+}
+
+function roundUpToNearest1000($amount) {
+    return ceil($amount / 1000) * 1000;
+}
+
+// Specify the number of months
+$n = 12;  // You can change this to any desired number of months
+
+// Compute the debt
+$finalDebt = computeDebt($n);
+
+echo "The debt after $n months is: $" . number_format($finalDebt, 2);
+?>
+
+-----------------------------------------------------
+
+Task 3:
+
+<?php
+define('EPS', 1e-8);
+    $a = fscanf(STDIN, '%f %f %f %f %f %f %f %f');
+    $line = array();
+    $line[] = $a[1] - $a[3] === 0.0 ? INF : ($a[0] - $a[2]) / ($a[1] - $a[3]);
+    $line[] = $a[5] - $a[7] === 0.0 ? INF : ($a[4] - $a[6]) / ($a[5] - $a[7]);
+    if (max($line) === INF && min($line) === 0 || abs($line[0] * $line[1] + 1.0) < EPS) {
+        echo 'Orthogonal';
+    } else {
+        echo 'Not orthogonal';
+    }
+    echo PHP_EOL;
+?>
